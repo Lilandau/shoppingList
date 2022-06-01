@@ -11,12 +11,19 @@ export default function ShoppingElements() {
 
     }
 
-    return (<>
+    return (
+        <>
             <div className={styles.shoppingElement}>
-                <label htmlFor="test">Shopping Element</label>
+                <div className={styles.trashbin}>
+                    <img src={'./icons/trash.png'} alt={'trash'}/>
+                </div>
+                <div>
+                    <label htmlFor="test">Shopping Element</label>
                 <input type="text" id="test" onChange={onInputChange}/>
+                </div>
             </div>
             <p>your input: {input}</p>
         </>
+
     )
 }
