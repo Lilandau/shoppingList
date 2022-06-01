@@ -13,13 +13,17 @@ export default function ShoppingElements() {
 
     return (
         <>
-            <div className={styles.shoppingElement}>
-                <div className={styles.trashbin}>
-                    <img src={'./icons/trash.png'} alt={'trash'}/>
-                </div>
-                <div>
-                    <label htmlFor="test">Shopping Element</label>
-                <input type="text" id="test" onChange={onInputChange}/>
+            <div className={styles.shoppingElementCard}>
+                <div className={styles.shoppingElement}>
+                    <div className={styles.input}>
+                        <label htmlFor="test"></label>
+                        <input type="text" id="test" onChange={onInputChange} 
+                        value={'Element'}/>
+                    </div>
+                    <div className={styles.trashbinIcon}>
+                        <img src={'./icons/trash.png'} alt={'trash'}/>
+                    </div>
+                    
                 </div>
             </div>
             <p>your input: {input}</p>
