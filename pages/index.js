@@ -4,7 +4,8 @@ import styles from './index.module.css';
 
 export default function Home() {
     return (
-        <div className={styles.card}>
+        <>
+            <div className={styles.card}>
             <span className={styles.span}>
                 <h1>Shopping List</h1>
             </span>
@@ -15,5 +16,6 @@ export default function Home() {
                 <ShoppingElements/>
             </div>
         </div>
+        </>
     )
 }
