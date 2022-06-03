@@ -1,8 +1,9 @@
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 80%;
     border-radius: 5px;
-    background-color: white;
+    background-color: pink;
     margin: auto;
     margin-top: 2rem;
 }
@@ -15,3 +16,4 @@
     float: right;
     padding-right: 6rem;
 }
+
