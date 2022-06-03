@@ -1,13 +1,29 @@
-import 'bootstrap/dist/css/bootstrap.css'; // Add this line
 import '../styles/globals.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import Head from "next/head";
 import {useEffect} from "react";
 
-function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    import("bootstrap/dist/js/bootstrap");
-  }, []);
-  
-  return <Component {...pageProps} />
+function MyApp({Component, pageProps}) {
+
+    useEffect(() => {
+        if (typeof document !== undefined) {
+            require("bootstrap/dist/js/bootstrap");
+        }
+    }, []);
+
+    return (
+        <>
+            <Head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+                    rel="stylesheet"
+                    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+                    crossOrigin="anonymous"
+                ></link>
+            </Head>
+            <Component {...pageProps} />
+        </>)
 }
 
 export default MyApp

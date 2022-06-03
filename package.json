@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@markmccoid/react-native-drag-and-order": "^0.1.9",
     "bootstrap": "^5.1.3",
+    "moti": "^0.18.0",
     "next": "12.1.6",
     "react": "18.1.0",
+    "react-beautiful-dnd": "^13.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "18.1.0"
   },
