@@ -1,21 +1,36 @@
 import styles from "./shoppingList.module.css";
 import ShoppingElement from "./shoppingElement";
-import EmptyElement from "./emptyElement";
+import {useState} from "react";
+import {v4 as uuidv4} from "uuid";
 
 export default function ShoppingList() {
 
-    const elements = [{
-        id: 1,
+    const initialList = [{
+        id: uuidv4(),
         name: 'Butter',
         amount: '1'
-        },
+    },
         {
-            id: 2,
+            id: uuidv4(),
             name: 'Karotten',
             amount: '5'
         }];
-    
 
+    const [shoppingList, setShoppingList] = useState(initialList);
+    const [item, setItem] = useState('');
+
+
+    function handleChange(event) {
+        setItem(event.target.value)
+    }
+
+    function handleAdd() {
+        const newList = shoppingList.concat({name:item, id: uuidv4(), amount: '1'});
+        setShoppingList(newList);
+        setItem('');
+        console.log(shoppingList);
+    }
+    
     return (<>
             <div id='shoppingList' className={styles.card}>
                 <div>
@@ -27,13 +42,20 @@ export default function ShoppingList() {
             </span>
                 </div>
                 <ul>
-                    {elements.map(
+                    {shoppingList.map(
                         (element) => (<ShoppingElement key={element.id}
                                                        name={element.name} amount={element.amount}/>)
                     )}
                 </ul>
-                <ShoppingElement/>
-                <EmptyElement/>
+
+                <div>
+                    <input type="text" value={item} onChange={handleChange}/>
+                    <button type="button" onClick={handleAdd}>
+                        Add
+                    </button>
+                </div>
+                
+                
             </div>
         </>
     );
