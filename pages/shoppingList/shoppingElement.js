@@ -8,8 +8,8 @@ export default function ShoppingElement(props) {
     
     return (
         <>
-            <li>
-                <div className={styles.shoppingElement}>
+            <li className={styles.shoppingElement}>
+                <div >
                     <div className="input-group mb-3">
                         <button className={"btn btn-outline-secondary"} type="button" id="button-addon1"
                                 onClick={()=>props.handleDelete(element.id)}>
