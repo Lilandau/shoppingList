@@ -15,7 +15,7 @@ export default function ShoppingElement(props) {
                                 onClick={()=>props.handleDelete(element.id)}>
                             <img className={styles.btnImg} src={'./icons/trash.png'} alt={'trashbin'}></img>
                         </button>
-                        <input type="text" className="form-control" placeholder={props.name}
+                        <input type="text" className="form-control" value={props.name}
                                aria-label="Example text with button addon"
                                aria-describedby="button-addon1"/>
                     </div>
