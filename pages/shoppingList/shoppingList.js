@@ -23,6 +23,15 @@ export default function ShoppingList() {
     function handleChange(event) {
         setItem(event.target.value)
     }
+    
+    function handleDelete(id){
+        let newList = shoppingList.filter( 
+            function (el){
+                return el.id!==id;
+            }
+        );
+        setShoppingList(newList);
+    }
 
     function handleAdd() {
         const newList = shoppingList.concat({name:item, id: uuidv4(), amount: '1'});
@@ -44,7 +53,8 @@ export default function ShoppingList() {
                 <ul>
                     {shoppingList.map(
                         (element) => (<ShoppingElement key={element.id}
-                                                       name={element.name} amount={element.amount}/>)
+                                                       name={element.name} amount={element.amount} id={element.id}
+                                                        handleDelete={handleDelete}/>)
                     )}
                 </ul>
 
