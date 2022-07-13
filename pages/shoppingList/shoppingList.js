@@ -56,9 +56,8 @@ export default function ShoppingList() {
                                                        name={element.name} amount={element.amount} id={element.id}
                                                        handleDelete={handleDelete}/>)
                     )}
+                    <EmptyElement item={item} onAdd={handleAdd}/>
                 </ul>
-
-                <EmptyElement item={item} onAdd={handleAdd}/>
             </div>
         </>
     );

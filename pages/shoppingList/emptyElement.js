@@ -11,7 +11,7 @@ export default function EmptyElement(props) {
 
 
     return (<>
-        <div>
+        <li className={styles.shoppingElement}>
             <div className="input-group mb-3">
                 <input type="text" value={item} className={` ${styles.elementFieldDiv} form-control`}
                        onChange={handleChange}
@@ -23,10 +23,12 @@ export default function EmptyElement(props) {
                            }
                        }}
                 />
-                <button type="button" onClick={() => props.onAdd(item)}>
-                    Add
+                <button type="button"
+                        className={"btn btn-outline-secondary"} id="button-addon1"
+                        onClick={() => props.onAdd(item)}>
+                    <img className={styles.btnImg} src={'./icons/plus.png'} alt={'plus'}></img>
                 </button>
             </div>
-        </div>
+        </li>
     </>);
 }
