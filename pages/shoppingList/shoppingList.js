@@ -23,23 +23,23 @@ export default function ShoppingList() {
     function handleChange(event) {
         setItem(event.target.value)
     }
-    
-    function handleDelete(id){
-        let newList = shoppingList.filter( 
-            function (el){
-                return el.id!==id;
+
+    function handleDelete(id) {
+        let newList = shoppingList.filter(
+            function (el) {
+                return el.id !== id;
             }
         );
         setShoppingList(newList);
     }
 
     function handleAdd() {
-        const newList = shoppingList.concat({name:item, id: uuidv4(), amount: '1'});
+        const newList = shoppingList.concat({name: item, id: uuidv4(), amount: '1'});
         setShoppingList(newList);
         setItem('');
         console.log(shoppingList);
     }
-    
+
     return (<>
             <div id='shoppingList' className={styles.card}>
                 <div>
@@ -54,18 +54,23 @@ export default function ShoppingList() {
                     {shoppingList.map(
                         (element) => (<ShoppingElement key={element.id}
                                                        name={element.name} amount={element.amount} id={element.id}
-                                                        handleDelete={handleDelete}/>)
+                                                       handleDelete={handleDelete}/>)
                     )}
                 </ul>
 
                 <div>
-                    <input type="text" value={item} onChange={handleChange}/>
+                    <input type="text" value={item} onChange={handleChange}
+                           onKeyUp={(e) => {
+                               if (e.key === 'Enter') {
+                                   handleAdd();
+                               }
+                           }}/>
                     <button type="button" onClick={handleAdd}>
                         Add
                     </button>
                 </div>
-                
-                
+
+
             </div>
         </>
     );
