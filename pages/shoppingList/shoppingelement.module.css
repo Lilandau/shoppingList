@@ -14,3 +14,12 @@
     height: 2rem;
 }
 
+
+.elementFieldDiv{
+    display: flex;
+    align-items: center;
+}
+
+.elementField{
+    margin: 0;
+}
