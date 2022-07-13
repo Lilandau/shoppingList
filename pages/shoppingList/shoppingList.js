@@ -2,6 +2,7 @@ import styles from "./shoppingList.module.css";
 import ShoppingElement from "./shoppingElement";
 import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
+import EmptyElement from "./emptyElement";
 
 export default function ShoppingList() {
 
@@ -33,11 +34,10 @@ export default function ShoppingList() {
         setShoppingList(newList);
     }
 
-    function handleAdd() {
-        const newList = shoppingList.concat({name: item, id: uuidv4(), amount: '1'});
+    function handleAdd(newItem) {
+        let element = {name: newItem, id: uuidv4(), amount: '1'};
+        const newList = shoppingList.concat(element);
         setShoppingList(newList);
-        setItem('');
-        console.log(shoppingList);
     }
 
     return (<>
@@ -58,19 +58,7 @@ export default function ShoppingList() {
                     )}
                 </ul>
 
-                <div>
-                    <input type="text" value={item} onChange={handleChange}
-                           onKeyUp={(e) => {
-                               if (e.key === 'Enter') {
-                                   handleAdd();
-                               }
-                           }}/>
-                    <button type="button" onClick={handleAdd}>
-                        Add
-                    </button>
-                </div>
-
-
+                <EmptyElement item={item} onAdd={handleAdd}/>
             </div>
         </>
     );
